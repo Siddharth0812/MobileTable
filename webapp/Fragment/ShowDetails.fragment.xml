@@ -1,0 +1,30 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.ui.layout.form">
+	<Dialog title="Material Details" id="ShowDetails">
+		<f:SimpleForm id="Form1">
+			<Label text="Material Number"></Label>
+			<Input value="{Matnr}" enabled="false"></Input>
+			<Label text="Created By"></Label>
+			<Input value="{Ernam}" enabled="false"></Input>
+			<Label text="Changed by"></Label>
+			<Input value="{Aenam}" enabled="false"></Input>
+			<Label text="Maint. Status"></Label>
+			<Input value="{Pstat}" enabled="false"></Input>
+			<Label text="DF Client Level"></Label>
+			<!--<Switch state="{= ${Lvorm} == 'true' ? true: false}">
+											<layoutData>
+												<FlexItemData growFactor="1"/>
+											</layoutData>
+										</Switch>-->
+										<Switch state="{Lvorm}">
+											<layoutData>
+												<FlexItemData growFactor="1"/>
+											</layoutData>
+										</Switch>
+										
+			<!--<Input value="{Mtart}"  enabled="false"></Input>-->
+		</f:SimpleForm>
+		<beginButton>
+			<Button text="Close" press="onClose"/>
+		</beginButton>
+	</Dialog>
+</core:FragmentDefinition>

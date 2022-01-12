@@ -1,0 +1,76 @@
+<mvc:View controllerName="com.airdit.OdataModel.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}" titleAlignment="Center">
+					<content>
+						<Table id="task1_table" items="{path: '/MaterialSet', parameters: { $count: true }}" growing="true" growingScrollToLoad="true"
+							enableBusyIndicator="true" sticky="ColumnHeaders" mode="SingleSelectMaster" selectionChange="rowSelect">
+							<!--<SearchField width="300px" placeholder="search by material" search="onFilterPosts"></SearchField>-->
+							<headerToolbar>
+								<Toolbar>
+									<content>
+										<Title text="Products({= ${/MaterialSet/results}.length})"></Title>
+									</content>
+									<ToolbarSpacer/>
+									<SearchField width="100px" placeholder="search by material" search="onFilterPosts"></SearchField>
+									<Button tooltip="Filter" icon="sap-icon://filter" press="handleFilterButtonPressed"/>
+									<Button icon="sap-icon://sort" tooltip="Sort" press="handleSortButtonPressed"></Button>
+								</Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column width="9em">
+									<Label text="Material Number" design="Bold"></Label>
+								</Column>
+								<Column width="8em">
+									<Label text="Created By" design="Bold"></Label>
+								</Column>
+								<Column width="8em">
+									<Label text="Changed By" design="Bold"></Label>
+								</Column>
+								<Column hAlign="Center" width="8em" minScreenWidth="Tablet" demandPopin="true">
+									<Label text="Maint. Status" design="Bold"></Label>
+								</Column>
+								<Column hAlign="Center">
+									<Label text="Material Type" design="Bold"></Label>
+								</Column>
+								<Column hAlign="Center">
+									<Label text="DF Client Level" design="Bold"></Label>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+									<Label text="Industry Sector" design="Bold"></Label>
+								</Column>
+								<Column hAlign="Center">
+									<Label text="Material Group" design="Bold"></Label>
+								</Column>
+								<Column hAlign="Center">
+									<Label text="Old Mail Number" design="Bold"></Label>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+									<Label text="Order Unit" design="Bold"></Label>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem vAlign="Middle">
+									<cells>
+										<Text text="{Matnr}"></Text>
+										<Text text="{Ernam}"></Text>
+										<Text text="{Aenam}"></Text>
+										<ObjectStatus text="{Pstat}" state="{ path: 'Pstat', formatter: '.formatter.quantityStatus' }"/>
+									<!--<ObjectStatus text="{Pstat}" state= "{= ${Pstat} === 'K'? 'Success': ${Pstat} === 'KV'? 'Warning':'Information'}"> </ObjectStatus>-->
+											<Text text="{Mtart}"></Text>
+										<Text text="{Lvorm}"></Text>
+										<Text text="{Mbrsh}"></Text>
+										<Text text="{Matkl}"></Text>
+										<Text text="{Meins}"></Text>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
